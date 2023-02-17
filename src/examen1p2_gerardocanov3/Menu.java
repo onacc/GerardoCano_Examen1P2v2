@@ -44,9 +44,25 @@ ArrayList<PC> compus = new ArrayList();
         creatpcfram = new javax.swing.JFrame();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         listarframe = new javax.swing.JFrame();
         jButton5 = new javax.swing.JButton();
         textArea1 = new java.awt.TextArea();
+        laptop = new javax.swing.JFrame();
+        ip = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        mask = new javax.swing.JTextField();
+        host = new javax.swing.JTextField();
+        marca = new javax.swing.JTextField();
+        res = new javax.swing.JTextField();
+        rgb = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        escritorio = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         cr_pc = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -123,22 +139,36 @@ ArrayList<PC> compus = new ArrayList();
         });
 
         jButton4.setText("Escritorio");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("PC");
 
         javax.swing.GroupLayout creatpcframLayout = new javax.swing.GroupLayout(creatpcfram.getContentPane());
         creatpcfram.getContentPane().setLayout(creatpcframLayout);
         creatpcframLayout.setHorizontalGroup(
             creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(creatpcframLayout.createSequentialGroup()
-                .addGap(156, 156, 156)
                 .addGroup(creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(creatpcframLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addGroup(creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(creatpcframLayout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(jLabel3)))
                 .addContainerGap(165, Short.MAX_VALUE))
         );
         creatpcframLayout.setVerticalGroup(
             creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(creatpcframLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
@@ -174,6 +204,136 @@ ArrayList<PC> compus = new ArrayList();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
                 .addGap(37, 37, 37))
+        );
+
+        ip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ipActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("IP:");
+
+        jLabel5.setText("Mask:");
+
+        jLabel6.setText("Host name:");
+
+        jLabel7.setText("Marca:");
+
+        jLabel8.setText("Resolution:");
+
+        jLabel9.setText("RGB");
+
+        mask.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maskActionPerformed(evt);
+            }
+        });
+
+        host.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hostActionPerformed(evt);
+            }
+        });
+
+        marca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                marcaActionPerformed(evt);
+            }
+        });
+
+        res.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resActionPerformed(evt);
+            }
+        });
+
+        rgb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rgbActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Laptop");
+
+        javax.swing.GroupLayout laptopLayout = new javax.swing.GroupLayout(laptop.getContentPane());
+        laptop.getContentPane().setLayout(laptopLayout);
+        laptopLayout.setHorizontalGroup(
+            laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(laptopLayout.createSequentialGroup()
+                .addGroup(laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(laptopLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(laptopLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(res))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, laptopLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(marca))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, laptopLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mask))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, laptopLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(ip, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, laptopLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(rgb, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, laptopLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(host))))
+                    .addGroup(laptopLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel10)))
+                .addContainerGap(180, Short.MAX_VALUE))
+        );
+        laptopLayout.setVerticalGroup(
+            laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(laptopLayout.createSequentialGroup()
+                .addComponent(jLabel10)
+                .addGap(8, 8, 8)
+                .addGroup(laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(ip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(mask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(host, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(laptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(rgb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio.getContentPane());
+        escritorio.getContentPane().setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -237,8 +397,21 @@ ArrayList<PC> compus = new ArrayList();
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         setVisible(false);
-        System.out.println("Ingrese IP");
-        String ip = read.next();
+        System.out.println("Ingrese un comando");
+        String command = read.next();
+        if (command.equals("show")){
+            Imprimir(compus);
+        }else if(command.equals("exit")){
+            setVisible(true);
+        } else if (command.equals("ping")){
+            System.out.println("Ingrese IP");
+            String ip = read.next();
+            
+        }else{
+            System.out.println("comando no reconocido");
+            
+        }
+        setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void list_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_btActionPerformed
@@ -259,7 +432,10 @@ ArrayList<PC> compus = new ArrayList();
 
     private void eliminar_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_btActionPerformed
         agregar_pc.setVisible(false);
-        
+        //String m = JOptionPane.showInputDialog(Imprimir(compus));
+        //int p = Integer.parseInt(m);
+        //compus.remove(p);
+        agregar_pc.setVisible(true);
     }//GEN-LAST:event_eliminar_btActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -268,13 +444,50 @@ ArrayList<PC> compus = new ArrayList();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        laptop.setVisible(true);
+        laptop.setLocationRelativeTo(this);
+        laptop.setSize(400,430);
+        creatpcfram.setVisible(false);
+        laptop.setResizable(false);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         listarframe.setVisible(false);
         agregar_pc.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        escritorio.setVisible(true);
+        escritorio.setLocationRelativeTo(this);
+        escritorio.setSize(400,300);
+        creatpcfram.setVisible(false);
+        escritorio.setResizable(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void ipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ipActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ipActionPerformed
+
+    private void hostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hostActionPerformed
+
+    private void maskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maskActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maskActionPerformed
+
+    private void marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_marcaActionPerformed
+
+    private void resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resActionPerformed
+
+    private void rgbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rgbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,6 +528,12 @@ ArrayList<PC> compus = new ArrayList();
             }
         });
     }
+    static void Imprimir(ArrayList lista){
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.indexOf(i)+" - "+lista.get(i));
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame agregar_pc;
@@ -322,15 +541,31 @@ ArrayList<PC> compus = new ArrayList();
     private javax.swing.JButton crear_bt;
     private javax.swing.JFrame creatpcfram;
     private javax.swing.JButton eliminar_bt;
+    private javax.swing.JFrame escritorio;
+    private javax.swing.JTextField host;
+    private javax.swing.JTextField ip;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JFrame laptop;
     private javax.swing.JButton list_bt;
     private javax.swing.JFrame listarframe;
+    private javax.swing.JTextField marca;
+    private javax.swing.JTextField mask;
+    private javax.swing.JTextField res;
+    private javax.swing.JTextField rgb;
     private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
 }
