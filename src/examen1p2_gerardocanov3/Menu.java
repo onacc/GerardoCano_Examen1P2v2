@@ -5,13 +5,16 @@
 package examen1p2_gerardocanov3;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author gcano
  */
 public class Menu extends javax.swing.JFrame {
-
+    static Scanner read = new Scanner(System.in);
+ArrayList<PC> compus = new ArrayList();
     /**
      * Creates new form Menu
      */
@@ -32,19 +35,110 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         agregar_pc = new javax.swing.JFrame();
+        jLabel2 = new javax.swing.JLabel();
+        crear_bt = new javax.swing.JButton();
+        list_bt = new javax.swing.JButton();
+        eliminar_bt = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        creatpcfram = new javax.swing.JFrame();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         cr_pc = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+
+        jLabel2.setText("CRUD PC");
+
+        crear_bt.setText("Crear");
+        crear_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crear_btActionPerformed(evt);
+            }
+        });
+
+        list_bt.setText("Listar");
+        list_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                list_btActionPerformed(evt);
+            }
+        });
+
+        eliminar_bt.setText("Eliminar");
+        eliminar_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminar_btActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout agregar_pcLayout = new javax.swing.GroupLayout(agregar_pc.getContentPane());
         agregar_pc.getContentPane().setLayout(agregar_pcLayout);
         agregar_pcLayout.setHorizontalGroup(
             agregar_pcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(agregar_pcLayout.createSequentialGroup()
+                .addGroup(agregar_pcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(agregar_pcLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel2))
+                    .addGroup(agregar_pcLayout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addGroup(agregar_pcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(list_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(crear_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(eliminar_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         agregar_pcLayout.setVerticalGroup(
             agregar_pcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(agregar_pcLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(crear_bt)
+                .addGap(18, 18, 18)
+                .addComponent(list_bt)
+                .addGap(18, 18, 18)
+                .addComponent(eliminar_bt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+
+        jButton3.setText("Laptop");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Escritorio");
+
+        javax.swing.GroupLayout creatpcframLayout = new javax.swing.GroupLayout(creatpcfram.getContentPane());
+        creatpcfram.getContentPane().setLayout(creatpcframLayout);
+        creatpcframLayout.setHorizontalGroup(
+            creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(creatpcframLayout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addGroup(creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+        creatpcframLayout.setVerticalGroup(
+            creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(creatpcframLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,13 +193,44 @@ public class Menu extends javax.swing.JFrame {
     private void cr_pcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cr_pcActionPerformed
         agregar_pc.setVisible(true);
         agregar_pc.setLocationRelativeTo(null);
-        agregar_pc.setSize(500,500);
+        agregar_pc.setSize(400,300);
         setVisible(false);
+        agregar_pc.setResizable(false);
+        
+         
     }//GEN-LAST:event_cr_pcActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        System.out.println("Ingrese IP");
+        String ip = read.next();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void list_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_btActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_list_btActionPerformed
+
+    private void crear_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_btActionPerformed
+        creatpcfram.setVisible(true);
+        creatpcfram.setLocationRelativeTo(this);
+        creatpcfram.setSize(400,300);
+        agregar_pc.setVisible(false);
+        creatpcfram.setResizable(false);
+    }//GEN-LAST:event_crear_btActionPerformed
+
+    private void eliminar_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_btActionPerformed
+        agregar_pc.setVisible(false);
+        
+    }//GEN-LAST:event_eliminar_btActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        agregar_pc.setVisible(false);
+        setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,7 +275,15 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame agregar_pc;
     private javax.swing.JButton cr_pc;
+    private javax.swing.JButton crear_bt;
+    private javax.swing.JFrame creatpcfram;
+    private javax.swing.JButton eliminar_bt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton list_bt;
     // End of variables declaration//GEN-END:variables
 }
