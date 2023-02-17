@@ -7,6 +7,7 @@ package examen1p2_gerardocanov3;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,6 +44,9 @@ ArrayList<PC> compus = new ArrayList();
         creatpcfram = new javax.swing.JFrame();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        listarframe = new javax.swing.JFrame();
+        jButton5 = new javax.swing.JButton();
+        textArea1 = new java.awt.TextArea();
         jLabel1 = new javax.swing.JLabel();
         cr_pc = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -126,19 +130,50 @@ ArrayList<PC> compus = new ArrayList();
             creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(creatpcframLayout.createSequentialGroup()
                 .addGap(156, 156, 156)
-                .addGroup(creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(165, Short.MAX_VALUE))
         );
         creatpcframLayout.setVerticalGroup(
             creatpcframLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(creatpcframLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(61, 61, 61)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(175, Short.MAX_VALUE))
+        );
+
+        jButton5.setText("OK");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout listarframeLayout = new javax.swing.GroupLayout(listarframe.getContentPane());
+        listarframe.getContentPane().setLayout(listarframeLayout);
+        listarframeLayout.setHorizontalGroup(
+            listarframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listarframeLayout.createSequentialGroup()
+                .addGroup(listarframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(listarframeLayout.createSequentialGroup()
+                        .addGap(330, 330, 330)
+                        .addComponent(jButton5))
+                    .addGroup(listarframeLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        listarframeLayout.setVerticalGroup(
+            listarframeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarframeLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addGap(37, 37, 37))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -192,7 +227,7 @@ ArrayList<PC> compus = new ArrayList();
 
     private void cr_pcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cr_pcActionPerformed
         agregar_pc.setVisible(true);
-        agregar_pc.setLocationRelativeTo(null);
+        agregar_pc.setLocationRelativeTo(this);
         agregar_pc.setSize(400,300);
         setVisible(false);
         agregar_pc.setResizable(false);
@@ -207,7 +242,11 @@ ArrayList<PC> compus = new ArrayList();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void list_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_btActionPerformed
-        // TODO add your handling code here:
+        listarframe.setVisible(true);
+        listarframe.setLocationRelativeTo(this);
+        listarframe.setSize(750,700);
+        agregar_pc.setVisible(false);
+        listarframe.setResizable(false);
     }//GEN-LAST:event_list_btActionPerformed
 
     private void crear_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_btActionPerformed
@@ -231,6 +270,11 @@ ArrayList<PC> compus = new ArrayList();
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        listarframe.setVisible(false);
+        agregar_pc.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,8 +326,11 @@ ArrayList<PC> compus = new ArrayList();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton list_bt;
+    private javax.swing.JFrame listarframe;
+    private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
 }
