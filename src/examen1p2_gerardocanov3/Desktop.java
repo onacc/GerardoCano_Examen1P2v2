@@ -19,6 +19,14 @@ private String tiposto, Gpu;
         this.Gpu = Gpu;
     }
 
+    public Desktop(int ram, int storage, String tiposto, String Gpu, String ip, String mask, String hostname) {
+        super(ip, mask, hostname);
+        this.ram = ram;
+        this.storage = storage;
+        this.tiposto = tiposto;
+        this.Gpu = Gpu;
+    }
+    
     public Desktop() {
         super();
     }

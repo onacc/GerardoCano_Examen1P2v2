@@ -21,6 +21,13 @@ public class Laptop extends PC {
     super();
     }
 
+    public Laptop(String marca, String res, String RGB, String ip, String mask, String hostname) {
+        super(ip, mask, hostname);
+        this.marca = marca;
+        this.res = res;
+        this.RGB = RGB;
+    }
+    
     public String getMarca() {
         return marca;
     }
