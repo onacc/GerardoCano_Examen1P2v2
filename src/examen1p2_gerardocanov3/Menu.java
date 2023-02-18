@@ -82,11 +82,11 @@ ArrayList<PC> compus = new ArrayList();
         GPU = new javax.swing.JTextField();
         bt_crear = new javax.swing.JButton();
         jF_eliminar = new javax.swing.JFrame();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listar_text1 = new javax.swing.JTextArea();
         txt_eliminar = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listar_text2 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         cr_pc = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -508,10 +508,6 @@ ArrayList<PC> compus = new ArrayList();
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        listar_text1.setColumns(20);
-        listar_text1.setRows(5);
-        jScrollPane2.setViewportView(listar_text1);
-
         txt_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_eliminarActionPerformed(evt);
@@ -526,6 +522,10 @@ ArrayList<PC> compus = new ArrayList();
         });
 
         jLabel19.setText("Ingrese el indice del PC que desea eliminar ");
+
+        listar_text2.setColumns(20);
+        listar_text2.setRows(5);
+        jScrollPane3.setViewportView(listar_text2);
 
         javax.swing.GroupLayout jF_eliminarLayout = new javax.swing.GroupLayout(jF_eliminar.getContentPane());
         jF_eliminar.getContentPane().setLayout(jF_eliminarLayout);
@@ -542,17 +542,17 @@ ArrayList<PC> compus = new ArrayList();
                         .addGap(304, 304, 304)
                         .addComponent(jLabel19))
                     .addGroup(jF_eliminarLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                        .addGap(76, 76, 76)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         jF_eliminarLayout.setVerticalGroup(
             jF_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jF_eliminarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jF_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -620,9 +620,11 @@ ArrayList<PC> compus = new ArrayList();
     }//GEN-LAST:event_cr_pcActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String command="";
+        while(!command.equals("exit")){
         setVisible(false);
         System.out.println("Ingrese un comando");
-        String command = read.next();
+         command = read.next();
         if (command.equals("show")){
             Imprimir(compus);
         }else if(command.equals("exit")){
@@ -635,9 +637,10 @@ ArrayList<PC> compus = new ArrayList();
             System.out.println("comando no reconocido");
             
         }
-        setVisible(true);
+        //setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    }
+    
     private void list_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_btActionPerformed
         int i=0;
         listarframe.setVisible(true);
@@ -665,13 +668,13 @@ ArrayList<PC> compus = new ArrayList();
          int i=0;
         jF_eliminar.setVisible(true);
         jF_eliminar.setLocationRelativeTo(this);
-        jF_eliminar.setSize(800,700);
+        jF_eliminar.setSize(900,700);
         agregar_pc.setVisible(false);
         jF_eliminar.setResizable(false);
-        listar_text.setEditable(false);
+        listar_text2.setEditable(false);
         for (PC t : compus) {
             
-            listar_text.append(i+"-"+t+"\n");
+            listar_text2.append(i+"-"+t+"\n");
             i++;
         }
     }//GEN-LAST:event_eliminar_btActionPerformed
@@ -755,13 +758,13 @@ ArrayList<PC> compus = new ArrayList();
     private void bt_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crearActionPerformed
        compus.add(new Desktop(Integer.parseInt(ram.getText()),Integer.parseInt(storage.getText()),tipodestorage.getText(),
                GPU.getText(),ip.getText(),mask.getText(),host.getText()));
-               ram.setText("");
+               /*ram.setText("");
                storage.setText("");
                tipodestorage.setText("");
                GPU.setText("");
                ip.setText("");
                mask.setText("");
-               host.setText("");
+               host.setText("");*/
                jF_escritorio.setVisible(false);
                setVisible(true);
     }//GEN-LAST:event_bt_crearActionPerformed
@@ -772,12 +775,12 @@ ArrayList<PC> compus = new ArrayList();
 
     private void crear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear2ActionPerformed
        compus.add(new Laptop(marca.getText(), res.getText(), rgb.getText(), ip.getText(), mask.getText(), host.getText()));
-       marca.setText("");
+       /*marca.setText("");
        res.setText("");
        rgb.setText("");
        ip.setText("");
        mask.setText("");
-       host.setText("");
+       host.setText("");*/
        laptop.setVisible(false);
        setVisible(true);
     }//GEN-LAST:event_crear2ActionPerformed
@@ -893,11 +896,11 @@ ArrayList<PC> compus = new ArrayList();
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JFrame laptop;
     private javax.swing.JButton list_bt;
     private javax.swing.JTextArea listar_text;
-    private javax.swing.JTextArea listar_text1;
+    private javax.swing.JTextArea listar_text2;
     private javax.swing.JFrame listarframe;
     private javax.swing.JTextField marca;
     private javax.swing.JTextField mask;

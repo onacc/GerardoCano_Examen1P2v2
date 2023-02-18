@@ -46,7 +46,7 @@ public class PC {
 
     @Override
     public String toString() {
-        return "PC{" + "ip=" + ip + ", mask=" + mask + ", hostname=" + hostname + '}';
+        return   "IP: " + ip +"\n"+ "Mask: " + mask +"\n"+ "Hostname: " + hostname ;
     }
     
 }

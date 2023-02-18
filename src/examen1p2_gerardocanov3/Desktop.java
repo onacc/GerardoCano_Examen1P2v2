@@ -65,7 +65,7 @@ private String tiposto, Gpu;
 
     @Override
     public String toString() {
-        return "Desktop{" + "ram=" + ram + ", storage=" + storage + ", tiposto=" + tiposto + ", Gpu=" + Gpu + '}';
+        return super.toString() + "RAM: " + ram +"\n"+ "Storage " + storage +"\n"+ "Storage type" + tiposto +"\n"+ "GPU" + Gpu;
     }
     
 
