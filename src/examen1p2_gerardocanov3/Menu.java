@@ -632,14 +632,48 @@ ArrayList<PC> compus = new ArrayList();
         } else if (command.equals("ping")){
             System.out.println("Ingrese IP");
             String ip = read.next();
+            ping(ip);
             
         }else{
             System.out.println("comando no reconocido");
             
         }
+        
         //setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
     }
+    static void ping(String ip){
+        
+    }
+    static String convertBin(String c){
+        String retorno="";
+        for (int i = 0; i < c.length(); i++) {
+            int val = Integer.valueOf(c.charAt(i));
+            String binario = "";
+            while(val>0){
+                if(val%2==1){
+                    binario+='1';
+                }else{
+                    binario+='0';
+                    val/=2;
+                }
+                binario = rev(binario);
+                 retorno+=binario;
+            }
+        }
+        return retorno;
+    }
+    static String rev(String cad){
+        char []chars=cad.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            char temp = chars[i];
+            chars[i]=chars[chars.length];
+            chars[chars.length]=temp;
+        }
+        return String.valueOf(chars);
+    }
+    
+    
     
     private void list_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_btActionPerformed
         int i=0;
@@ -850,7 +884,7 @@ ArrayList<PC> compus = new ArrayList();
     }
     static void Imprimir(ArrayList lista){
         for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.indexOf(i)+" - "+lista.get(i));
+            System.out.println(lista.indexOf(i)+" "+lista.get(i));
         }
     }
     
