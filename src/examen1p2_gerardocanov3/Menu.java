@@ -14,8 +14,10 @@ import javax.swing.JOptionPane;
  * @author gcano
  */
 public class Menu extends javax.swing.JFrame {
+
     static Scanner read = new Scanner(System.in);
-static ArrayList<PC> compus = new ArrayList();
+    static ArrayList<PC> compus = new ArrayList();
+
     /**
      * Creates new form Menu
      */
@@ -23,7 +25,7 @@ static ArrayList<PC> compus = new ArrayList();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        
+
     }
 
     /**
@@ -612,96 +614,132 @@ static ArrayList<PC> compus = new ArrayList();
     private void cr_pcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cr_pcActionPerformed
         agregar_pc.setVisible(true);
         agregar_pc.setLocationRelativeTo(this);
-        agregar_pc.setSize(400,300);
+        agregar_pc.setSize(400, 300);
         setVisible(false);
         agregar_pc.setResizable(false);
-        
-         
+
+
     }//GEN-LAST:event_cr_pcActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String command="";
-        while(!command.equals("exit")){
-        setVisible(false);
-        System.out.println("Ingrese un comando");
-         command = read.next();
-        if (command.equals("show")){
-            Imprimir(compus);
-        }else if(command.equals("exit")){
-            setVisible(true);
-        } else if (command.equals("ping")){
-            System.out.println("Ingrese IP");
-            String ip1 = read.next();
-            
-            ping(ip1);
-            
-            
-        }else{
-            System.out.println("comando no reconocido");
-            
-        }
-        
-        //setVisible(true);
+        String command = "";
+        while (!command.equals("exit")) {
+            setVisible(false);
+            System.out.println("Ingrese un comando");
+            command = read.next();
+            if (command.equals("show")) {
+                System.out.println("Lista de PC's ingresadas");
+                Imprimir(compus);
+            } else if (command.equals("exit")) {
+                setVisible(true);
+            } else if (command.equals("ping")) {
+                System.out.println("Ingrese IP");
+                String ip1 = read.next();
+
+                ping(ip1);
+
+            } else {
+                System.out.println("comando no reconocido");
+
+            }
+
+            //setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
     }
-    static void ping(String ip1){
+
+    static void ping(String ip1) {
+        int p = 0;
         String arr[] = ip1.split(".");
-        String ip1b=arr[3];
+        String ip1b = arr[3];
         convertBin(ip1b);
         for (PC t : compus) {
-            String mask[]=t.getMask().split(".");
-            String temp =mask[3];
+            String mask[] = t.getMask().split(".");
+            String temp = mask[3];
             int count = Integer.parseInt(temp);
-            int contador=0;
-            for (int i = 0; i < temp.length()-1; i++) {
-                if(temp.charAt(i)==1){
+            int contador = 0;
+            for (int i = 0; i < temp.length() - 1; i++) {
+                if (temp.charAt(i) == 1) {
                     contador++;
                 }
             }
-            if(contador)
+            if (convertBin(t.getIp()).regionMatches(0, ip1b, 0, contador - 1)) {
+                System.out.println("Pinging " + t.getIp() + " with 32 bits of data:\n"
+                        + "Reply from " + t.getIp() + " : bytes=32 time=37ms TTL=46\n"
+                        + "Reply from " + t.getIp() + " : bytes=32 time=37ms TTL=46\n"
+                        + "Reply from " + t.getIp() + " : bytes=32 time=37ms TTL=46\n"
+                        + "Reply from " + t.getIp() + " : bytes=32 time=37ms TTL=46\n"
+                        + "Ping statistics for " + t.getIp() + " :\n"
+                        + "Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)");
+            } else {
+                System.out.println("Pinging to 192.168.2.5\n"
+                        + "Reply from " + t.getIp() + ":\n"
+                        + "Reply from " + t.getIp() + ":\n"
+                        + "Reply from " + t.getIp() + ":\n"
+                        + "with 32 bits of data:\n"
+                        + "Destination host unreachable\n"
+                        + "Destination host unreachable\n"
+                        + "Destination host unreachable\n"
+                        + "Reply from " + t.getIp() + ": Destination host unreachable\n"
+                        + "Ping statistics for " + t.getIp() + ":\n"
+                        + "Packets: Sent- 4, Received 0, Lost = 4 (100% loss)");
+            }
+            p++;
         }
+        if (p == compus.size()) {
+            System.out.println("Pinging to " + ip1 + " with 32 bits of data:\n"
+                    + "Request timed out\n"
+                    + "Request timed out\n"
+                    + "Request timed out\n"
+                    + "Request timed out\n"
+                    + "Ping statistics for " + ip1 + ":\n"
+                    + "Packets: Sent = 4, Received\n"
+                    + "=\n"
+                    + "0, Lost = 4 (100% loss)");
+        }
+
     }
-    static String convertBin(String c){
-        String retorno="";
+
+    static String convertBin(String c) {
+        String retorno = "";
         for (int i = 0; i < c.length(); i++) {
             int val = Integer.valueOf(c.charAt(i));
             String binario = "";
-            while(val>0){
-                if(val%2==1){
-                    binario+='1';
-                }else{
-                    binario+='0';
-                    val/=2;
+            while (val > 0) {
+                if (val % 2 == 1) {
+                    binario += '1';
+                } else {
+                    binario += '0';
+                    val /= 2;
                 }
                 binario = rev(binario);
-                 retorno+=binario;
+                retorno += binario;
             }
         }
         return retorno;
     }
-    static String rev(String cad){
-        char []chars=cad.toCharArray();
+
+    static String rev(String cad) {
+        char[] chars = cad.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             char temp = chars[i];
-            chars[i]=chars[chars.length];
-            chars[chars.length]=temp;
+            chars[i] = chars[chars.length];
+            chars[chars.length] = temp;
         }
         return String.valueOf(chars);
     }
-    
-    
-    
+
+
     private void list_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_btActionPerformed
-        int i=0;
+        int i = 0;
         listarframe.setVisible(true);
         listarframe.setLocationRelativeTo(this);
-        listarframe.setSize(750,700);
+        listarframe.setSize(750, 700);
         agregar_pc.setVisible(false);
         listarframe.setResizable(false);
         listar_text.setEditable(false);
         for (PC t : compus) {
-            
-            listar_text.append(i+"-"+t+"\n");
+
+            listar_text.append(i + "-" + t + "\n");
             i++;
         }
     }//GEN-LAST:event_list_btActionPerformed
@@ -709,22 +747,22 @@ static ArrayList<PC> compus = new ArrayList();
     private void crear_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_btActionPerformed
         creatpcfram.setVisible(true);
         creatpcfram.setLocationRelativeTo(this);
-        creatpcfram.setSize(400,300);
+        creatpcfram.setSize(400, 300);
         agregar_pc.setVisible(false);
         creatpcfram.setResizable(false);
     }//GEN-LAST:event_crear_btActionPerformed
 
     private void eliminar_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_btActionPerformed
-         int i=0;
+        int i = 0;
         jF_eliminar.setVisible(true);
         jF_eliminar.setLocationRelativeTo(this);
-        jF_eliminar.setSize(900,700);
+        jF_eliminar.setSize(900, 700);
         agregar_pc.setVisible(false);
         jF_eliminar.setResizable(false);
         listar_text2.setEditable(false);
         for (PC t : compus) {
-            
-            listar_text2.append(i+"-"+t+"\n");
+
+            listar_text2.append(i + "-" + t + "\n");
             i++;
         }
     }//GEN-LAST:event_eliminar_btActionPerformed
@@ -737,10 +775,10 @@ static ArrayList<PC> compus = new ArrayList();
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         laptop.setVisible(true);
         laptop.setLocationRelativeTo(this);
-        laptop.setSize(400,400);
+        laptop.setSize(400, 400);
         creatpcfram.setVisible(false);
         laptop.setResizable(false);
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -752,7 +790,7 @@ static ArrayList<PC> compus = new ArrayList();
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jF_escritorio.setVisible(true);
         jF_escritorio.setLocationRelativeTo(this);
-        jF_escritorio.setSize(400,400);
+        jF_escritorio.setSize(400, 400);
         creatpcfram.setVisible(false);
         jF_escritorio.setResizable(false);
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -806,17 +844,17 @@ static ArrayList<PC> compus = new ArrayList();
     }//GEN-LAST:event_tipodestorageActionPerformed
 
     private void bt_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crearActionPerformed
-       compus.add(new Desktop(Integer.parseInt(ram.getText()),Integer.parseInt(storage.getText()),tipodestorage.getText(),
-               GPU.getText(),ip.getText(),mask.getText(),host.getText()));
-               /*ram.setText("");
+        compus.add(new Desktop(Integer.parseInt(ram.getText()), Integer.parseInt(storage.getText()), tipodestorage.getText(),
+                GPU.getText(), ip.getText(), mask.getText(), host.getText()));
+        /*ram.setText("");
                storage.setText("");
                tipodestorage.setText("");
                GPU.setText("");
                ip.setText("");
                mask.setText("");
                host.setText("");*/
-               jF_escritorio.setVisible(false);
-               setVisible(true);
+        jF_escritorio.setVisible(false);
+        setVisible(true);
     }//GEN-LAST:event_bt_crearActionPerformed
 
     private void GPUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GPUActionPerformed
@@ -824,15 +862,15 @@ static ArrayList<PC> compus = new ArrayList();
     }//GEN-LAST:event_GPUActionPerformed
 
     private void crear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear2ActionPerformed
-       compus.add(new Laptop(marca.getText(), res.getText(), rgb.getText(), ip.getText(), mask.getText(), host.getText()));
-       /*marca.setText("");
+        compus.add(new Laptop(marca.getText(), res.getText(), rgb.getText(), ip.getText(), mask.getText(), host.getText()));
+        /*marca.setText("");
        res.setText("");
        rgb.setText("");
        ip.setText("");
        mask.setText("");
        host.setText("");*/
-       laptop.setVisible(false);
-       setVisible(true);
+        laptop.setVisible(false);
+        setVisible(true);
     }//GEN-LAST:event_crear2ActionPerformed
 
     private void txt_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_eliminarActionPerformed
@@ -840,23 +878,22 @@ static ArrayList<PC> compus = new ArrayList();
     }//GEN-LAST:event_txt_eliminarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-       int i=0;
+        int i = 0;
         jF_eliminar.setVisible(true);
         jF_eliminar.setLocationRelativeTo(this);
-        jF_eliminar.setSize(750,700);
+        jF_eliminar.setSize(750, 700);
         agregar_pc.setVisible(false);
         jF_eliminar.setResizable(false);
         listar_text.setEditable(false);
         for (PC t : compus) {
-            
-            listar_text.append(i+"-"+t+"\n");
+
+            listar_text.append(i + "-" + t + "\n");
             i++;
         }
-                  
-        
-       compus.remove(Integer.parseInt(txt_eliminar.getText()));
-       jF_eliminar.setVisible(false);
-       agregar_pc.setVisible(true);
+
+        compus.remove(Integer.parseInt(txt_eliminar.getText()));
+        jF_eliminar.setVisible(false);
+        agregar_pc.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -891,19 +928,20 @@ static ArrayList<PC> compus = new ArrayList();
             public void run() {
                 new Menu().setVisible(true);
                 Menu menu = new Menu();
-                menu.setBackground(new Color(51,51,51));
+                menu.setBackground(new Color(51, 51, 51));
                 //menu.setVisible(true);
                 menu.setLocationRelativeTo(null);
                 menu.setResizable(false);
             }
         });
     }
-    static void Imprimir(ArrayList lista){
+
+    static void Imprimir(ArrayList lista) {
         for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.indexOf(i)+" "+lista.get(i));
+            System.out.println(lista.indexOf(i) + " " + lista.get(i));
         }
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField GPU;
