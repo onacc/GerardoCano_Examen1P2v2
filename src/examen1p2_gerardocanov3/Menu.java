@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Menu extends javax.swing.JFrame {
     static Scanner read = new Scanner(System.in);
-ArrayList<PC> compus = new ArrayList();
+static ArrayList<PC> compus = new ArrayList();
     /**
      * Creates new form Menu
      */
@@ -631,8 +631,10 @@ ArrayList<PC> compus = new ArrayList();
             setVisible(true);
         } else if (command.equals("ping")){
             System.out.println("Ingrese IP");
-            String ip = read.next();
-            ping(ip);
+            String ip1 = read.next();
+            
+            ping(ip1);
+            
             
         }else{
             System.out.println("comando no reconocido");
@@ -642,8 +644,22 @@ ArrayList<PC> compus = new ArrayList();
         //setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
     }
-    static void ping(String ip){
-        
+    static void ping(String ip1){
+        String arr[] = ip1.split(".");
+        String ip1b=arr[3];
+        convertBin(ip1b);
+        for (PC t : compus) {
+            String mask[]=t.getMask().split(".");
+            String temp =mask[3];
+            int count = Integer.parseInt(temp);
+            int contador=0;
+            for (int i = 0; i < temp.length()-1; i++) {
+                if(temp.charAt(i)==1){
+                    contador++;
+                }
+            }
+            if(contador)
+        }
     }
     static String convertBin(String c){
         String retorno="";
